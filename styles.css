@@ -26,6 +26,16 @@ body {
     position: relative;
 }
 
+.blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+}
+
+@keyframes blink-animation {
+    to {
+        visibility: hidden;
+    }
+}
+
 @media (max-width: 1200px) {
     .typing {
         font-size: 65px;
