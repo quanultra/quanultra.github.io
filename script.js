@@ -1,20 +1,29 @@
 document.addEventListener("DOMContentLoaded", function () {
     const text = "Bui Van Quan,";
-    let index = 0;
     const typingElement = document.querySelector(".typing");
 
     function type() {
-        if (index < text.length) {
-            typingElement.innerHTML += text.charAt(index);
-            index++;
-            setTimeout(type, 280);
+        let index = 0;
+
+        function typeCharacter() {
+            if (index < text.length) {
+                typingElement.innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeCharacter, 280);
+            } else {
+                setTimeout(() => {
+                    typingElement.innerHTML = '';
+                    setTimeout(type, 5000);
+                }, 5000);
+            }
         }
+
+        typingElement.style.visibility = 'hidden';
+        setTimeout(() => {
+            typingElement.style.visibility = 'visible';
+            typeCharacter();
+        }, 1500);
     }
 
-    typingElement.style.visibility = 'hidden';
-
-    setTimeout(() => {
-        typingElement.style.visibility = 'visible';
-        type();
-    }, 1500);
+    type();
 });
