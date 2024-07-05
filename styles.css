@@ -1,7 +1,7 @@
-@font-face {
+/* @font-face {
     font-family: 'GreatVibes';
     src: url('GreatVibes-Regular.ttf');
-}
+} */
 
 body {
     margin: 0;
@@ -10,8 +10,10 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #fafafa;
-    font-family: 'GreatVibes';
+    /* font-family: 'GreatVibes';*/
+    font-family: "Libre Baskerville", serif;
     font-weight: 400;
+    font-style: normal;
 }
 
 .content {
@@ -20,13 +22,13 @@ body {
 
 .typing {
     color: #000000;
-    font-size: 80px;
+    font-size: 75px;
     position: relative;
 }
 
 @media (max-width: 1200px) {
     .typing {
-        font-size: 75px;
+        font-size: 72px;
     }
 }
 
