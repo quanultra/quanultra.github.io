@@ -11,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 index++;
                 setTimeout(typeCharacter, 280);
             } else {
+                const lastChar = typingElement.innerHTML.slice(-1);
+                if (lastChar === ',') {
+                    typingElement.innerHTML = typingElement.innerHTML.slice(0, -1) + '<span class="blink">,</span>';
+                }
+
                 setTimeout(() => {
                     typingElement.innerHTML = '';
                     setTimeout(type, 5000);
