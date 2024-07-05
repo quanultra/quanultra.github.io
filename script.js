@@ -15,11 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (lastChar === ',') {
                     typingElement.innerHTML = typingElement.innerHTML.slice(0, -1) + '<span class="blink">,</span>';
                 }
-
-                setTimeout(() => {
-                    typingElement.innerHTML = '';
-                    setTimeout(type, 5000);
-                }, 5000);
             }
         }
 
