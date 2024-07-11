@@ -1,7 +1,8 @@
-/* @font-face {
-    font-family: 'GreatVibes';
-    src: url('GreatVibes-Regular.ttf');
-} */
+@font-face {
+    font-family: 'TTHoves';
+    src: url('TTHoves-Regular.ttf');
+}
+
 * {
     user-select: none;
 }
@@ -13,9 +14,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #fafafa;
-    /* font-family: 'GreatVibes';*/
-    font-family: "Libre Baskerville", serif;
-    font-weight: 400;
+    font-family: "TTHoves";
     font-style: normal;
 }
 
