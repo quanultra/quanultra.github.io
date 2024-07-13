@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "Bui Van Quan,";
+    const text = "Stay hungry, stay foolish";
     const typingElement = document.querySelector(".typing");
 
     function type() {

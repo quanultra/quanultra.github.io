@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'TTHoves';
-    src: url('TTHoves-Regular.ttf');
+    font-family: 'SF Pro Display';
+    src: url('SF-Pro-Display-Regular.ttf');
 }
 
 * {
@@ -14,7 +14,6 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #fafafa;
-    font-family: "TTHoves";
     font-style: normal;
 }
 
@@ -23,9 +22,17 @@ body {
 }
 
 .typing {
-    color: #000000;
+    font-family: 'SF Pro Display', sans-serif;
+    background: #1d1d1f;
+    background-clip: text;
     font-size: 70px;
-    position: relative;
+    line-height: 1.125;
+    font-weight: 600;
+    letter-spacing: .004em;
+    -webkit-text-fill-color: rgba(0, 0, 0, 0);
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+    background-image: linear-gradient(108deg, #0894FF, #C959DD 34%, #FF2E54 68%, #FF9004);
 }
 
 .blink {
