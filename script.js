@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const text = "Stay hungry, stay foolish";
+    const text = "Stay hungry, stay foolish.";
     const typingElement = document.querySelector(".typing");
 
     function type() {
@@ -7,14 +7,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
         function typeCharacter() {
             if (index < text.length) {
-                typingElement.innerHTML += text.charAt(index);
+                if (text.charAt(index) === ',') {
+                    typingElement.innerHTML += '<span>,</span>';
+                    typingElement.innerHTML += '<span class="line-break"></span>';
+                } else {
+                    typingElement.innerHTML += text.charAt(index);
+                }
                 index++;
                 setTimeout(typeCharacter, 280);
             } else {
-                const lastChar = typingElement.innerHTML.slice(-1);
-                if (lastChar === ',') {
-                    typingElement.innerHTML = typingElement.innerHTML.slice(0, -1) + '<span class="blink">,</span>';
-                }
+                setTimeout(() => {
+                    typingElement.classList.add("zoom");
+                }, 1000);
             }
         }
 
