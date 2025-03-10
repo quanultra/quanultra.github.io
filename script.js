@@ -14,11 +14,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     typingElement.innerHTML += text.charAt(index);
                 }
                 index++;
-                setTimeout(typeCharacter, 280);
+                setTimeout(typeCharacter, 250);
             } else {
-                setTimeout(() => {
-                    typingElement.classList.add("zoom");
-                }, 1000);
+                // setTimeout(() => {
+                //     typingElement.classList.add("zoom");
+                // }, 1000);
+                console.log('Done');
             }
         }
 
@@ -26,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             typingElement.style.visibility = 'visible';
             typeCharacter();
-        }, 1500);
+        }, 1000);
     }
 
     type();
