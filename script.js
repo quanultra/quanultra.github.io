@@ -39,7 +39,14 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('resize', resizeCanvas);
 
     // Node and connection config
-    const NODE_COUNT = 48;
+    let NODE_COUNT = 48;
+    if (window.innerWidth < 576) {
+        NODE_COUNT = 18;
+    } else if (window.innerWidth < 768) {
+        NODE_COUNT = 28;
+    } else if (window.innerWidth < 992) {
+        NODE_COUNT = 36;
+    }
     const nodes = [];
     for (let i = 0; i < NODE_COUNT; i++) {
         nodes.push({
