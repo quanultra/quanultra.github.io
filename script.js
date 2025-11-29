@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     // Typing effect
-    const text = "Kiến Thức, Kinh Nghiệm, & Trải Nghiệm.";
+    const text = "Kiến Thức,Kinh Nghiệm,& Trải Nghiệm.";
     const typingElement = document.querySelector(".typing");
     const cursor = document.getElementById("typing-cursor");
     function type() {

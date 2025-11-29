@@ -14,8 +14,7 @@ body.dark-mode {
 }
 
 .dark-mode .typing {
-    background: #18181a;
-    /* background-image: linear-gradient(108deg, #fff, #C959DD 34%, #FF2E54 68%, #FF9004); */
+    /* background: none; */
     -webkit-text-fill-color: rgba(255,255,255,0.85);
 }
 
