@@ -26,11 +26,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 cursorSpan.style.width = '1ch';
                 cursorSpan.style.height = '1.2em';
                 cursorSpan.style.background = 'none';
-                cursorSpan.style.borderLeft = '2px solid #000';
+                const isDark = document.body.classList.contains('dark-mode');
+                cursorSpan.style.borderLeft = isDark ? '2px solid #fff' : '2px solid #000';
                 cursorSpan.style.marginLeft = '2px';
                 cursorSpan.style.verticalAlign = 'middle';
                 cursorSpan.style.animation = 'blink-cursor 1s steps(2, start) infinite';
             }
+                // Đổi màu cursor khi chuyển dark mode
+                function updateCursorColor() {
+                    const cursorSpan = document.querySelector('#typing-cursor');
+                    if (cursorSpan) {
+                        const isDark = document.body.classList.contains('dark-mode');
+                        cursorSpan.style.borderLeft = isDark ? '2px solid #fff' : '2px solid #000';
+                    }
+                }
+                document.getElementById('toggle-dark')?.addEventListener('click', () => {
+                    setTimeout(updateCursorColor, 100);
+                });
             if (index < text.length) {
                 index++;
                 setTimeout(typeCharacter, 250);

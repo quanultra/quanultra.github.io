@@ -1,3 +1,27 @@
+body.dark-mode {
+    background: #18181a !important;
+    color: #f5f5f7 !important;
+}
+
+.dark-mode .content {
+    color: #f5f5f7;
+}
+
+.dark-mode .typing {
+    background: #18181a;
+    /* background-image: linear-gradient(108deg, #fff, #C959DD 34%, #FF2E54 68%, #FF9004); */
+    -webkit-text-fill-color: rgba(255,255,255,0.85);
+}
+
+.dark-mode #lovefrom-bg {
+    background: transparent;
+}
+
+.dark-mode #toggle-dark {
+    background: #fff;
+    color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
 @font-face {
     font-family: 'SF Pro Display';
     src: url('SF-Pro-Display-Regular.ttf');
@@ -46,7 +70,7 @@ body {
     -webkit-text-fill-color: rgba(0, 0, 0, 0);
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
-    background-image: linear-gradient(108deg, #0894FF, #C959DD 34%, #FF2E54 68%, #FF9004);
+    /* background-image: linear-gradient(108deg, #0894FF, #C959DD 34%, #FF2E54 68%, #FF9004); */
 }
 
 .blink {

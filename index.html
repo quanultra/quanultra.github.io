@@ -15,10 +15,31 @@
 
 <body>
     <canvas id="neural-bg"></canvas>
+    <button id="toggle-dark" style="position:fixed;top:24px;right:24px;z-index:10;padding:8px 18px;border-radius:24px;border:none;background:#222;color:#fff;font-size:16px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.08);">Dark mode</button>
     <div class="content">
         <p class="typing"><span id="typing-cursor"></span></p>
     </div>
     <script src="script.js"></script>
+    <script>
+    // Dark mode toggle
+    const darkBtn = document.getElementById('toggle-dark');
+    function setDarkMode(on) {
+        if (on) {
+            document.body.classList.add('dark-mode');
+            darkBtn.textContent = 'Light mode';
+        } else {
+            document.body.classList.remove('dark-mode');
+            darkBtn.textContent = 'Dark mode';
+        }
+    }
+    darkBtn.onclick = function() {
+        setDarkMode(!document.body.classList.contains('dark-mode'));
+    };
+    // Tự động dark nếu user prefers-color-scheme
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        setDarkMode(true);
+    }
+    </script>
     <script>
     // Cursor blink effect
     const cursor = document.getElementById('typing-cursor');
