@@ -3,18 +3,35 @@ document.addEventListener("DOMContentLoaded", function () {
     // Typing effect
     const text = "Kiến Thức, Kinh Nghiệm, & Trải Nghiệm.";
     const typingElement = document.querySelector(".typing");
+    const cursor = document.getElementById("typing-cursor");
     function type() {
         let index = 0;
         function typeCharacter() {
-            if (index < text.length) {
-                if (text.charAt(index) === ',') {
-                    typingElement.innerHTML += ',';
-                    typingElement.innerHTML += '<br>';
-                } else if (text.charAt(index) === ' ') {
-                    typingElement.innerHTML += '&nbsp;';
+            let html = '';
+            for (let i = 0; i < index; i++) {
+                if (text.charAt(i) === ',') {
+                    html += ',';
+                    html += '<br>';
+                } else if (text.charAt(i) === ' ') {
+                    html += '&nbsp;';
                 } else {
-                    typingElement.innerHTML += text.charAt(index);
+                    html += text.charAt(i);
                 }
+            }
+            // Luôn đặt cursor cuối cùng
+            typingElement.innerHTML = html + '<span id="typing-cursor"></span>';
+            const cursorSpan = typingElement.querySelector('#typing-cursor');
+            if (cursorSpan) {
+                cursorSpan.style.display = 'inline-block';
+                cursorSpan.style.width = '1ch';
+                cursorSpan.style.height = '1.2em';
+                cursorSpan.style.background = 'none';
+                cursorSpan.style.borderLeft = '2px solid #000';
+                cursorSpan.style.marginLeft = '2px';
+                cursorSpan.style.verticalAlign = 'middle';
+                cursorSpan.style.animation = 'blink-cursor 1s steps(2, start) infinite';
+            }
+            if (index < text.length) {
                 index++;
                 setTimeout(typeCharacter, 250);
             }

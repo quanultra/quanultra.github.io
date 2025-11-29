@@ -16,9 +16,36 @@
 <body>
     <canvas id="neural-bg"></canvas>
     <div class="content">
-        <p class="typing"></p>
+        <p class="typing"><span id="typing-cursor"></span></p>
     </div>
     <script src="script.js"></script>
+    <script>
+    // Cursor blink effect
+    const cursor = document.getElementById('typing-cursor');
+    cursor.style.display = 'inline-block';
+    cursor.style.width = '1ch';
+    cursor.style.height = '1.2em';
+    cursor.style.background = 'none';
+    cursor.style.borderLeft = '2px solid #fff';
+    cursor.style.marginLeft = '2px';
+    cursor.style.verticalAlign = 'middle';
+    cursor.style.animation = 'blink-cursor 1s steps(2, start) infinite';
+
+    // Move cursor after .typing text
+    function updateCursorPosition() {
+        const typing = document.querySelector('.typing');
+        if (typing) {
+            cursor.style.position = 'relative';
+            cursor.style.left = '0';
+        }
+    }
+    setInterval(updateCursorPosition, 100);
+
+    // Add blink animation
+    const style = document.createElement('style');
+    style.innerHTML = `@keyframes blink-cursor { to { opacity: 0; } }`;
+    document.head.appendChild(style);
+    </script>
 </body>
 
 </html>
