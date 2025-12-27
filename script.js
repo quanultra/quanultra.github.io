@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     ctx.save();
                     ctx.strokeStyle = 'rgba(30,30,30,0.55)'; // Đen xám
                     ctx.lineWidth = 1.2;
-                    ctx.setLineDash([5, 5]); // Nét đứt
+                    ctx.setLineDash([12, 4, 3, 4]); // Nét đứt dài-ngắn
                     ctx.beginPath();
                     ctx.moveTo(a.x, a.y);
                     ctx.lineTo(b.x, b.y);
