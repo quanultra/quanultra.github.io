@@ -96,12 +96,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 const dist = Math.hypot(a.x - b.x, a.y - b.y);
                 if (dist < 180) {
                     ctx.save();
-                    ctx.strokeStyle = `rgba(8,148,255,${0.15 + 0.35 * (1 - dist/180)})`;
+                    ctx.strokeStyle = 'rgba(30,30,30,0.55)'; // Đen xám
                     ctx.lineWidth = 1.2;
+                    ctx.setLineDash([5, 5]); // Nét đứt
                     ctx.beginPath();
                     ctx.moveTo(a.x, a.y);
                     ctx.lineTo(b.x, b.y);
                     ctx.stroke();
+                    ctx.setLineDash([]); // Trở lại nét liền cho các phần khác
                     ctx.restore();
                 }
             }
@@ -111,9 +113,9 @@ document.addEventListener("DOMContentLoaded", function () {
             ctx.save();
             ctx.beginPath();
             ctx.arc(node.x, node.y, node.r, 0, 2 * Math.PI);
-            ctx.fillStyle = 'rgba(201,89,221,0.85)';
-            ctx.shadowColor = '#FF2E54';
-            ctx.shadowBlur = 8;
+            ctx.fillStyle = 'rgba(40,40,40,0.85)'; // Đen xám
+            ctx.shadowColor = 'rgba(0,0,0,0.18)';
+            ctx.shadowBlur = 6;
             ctx.fill();
             ctx.restore();
         }
