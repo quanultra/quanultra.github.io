@@ -1,7 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     // Typing effect
-    const text = "Kiến Thức,Kinh Nghiệm,& Trải Nghiệm.";
+    const text = "Kiến Thức,Kinh Nghiệm,& Trải Nghiệm.".toLowerCase();
     const typingElement = document.querySelector(".typing");
     const cursor = document.getElementById("typing-cursor");
     const profileImg = document.querySelector('.profile-img');
@@ -25,28 +25,36 @@ document.addEventListener("DOMContentLoaded", function () {
             if (cursorSpan) {
                 cursorSpan.style.display = 'inline-block';
                 cursorSpan.style.width = '1ch';
-                cursorSpan.style.height = '1.2em';
+                cursorSpan.style.height = '1.0em';
                 cursorSpan.style.background = 'none';
                 const isDark = document.body.classList.contains('dark-mode');
-                cursorSpan.style.borderLeft = isDark ? '2px solid #fff' : '2px solid #000';
+                cursorSpan.style.borderLeft = isDark ? '1px solid #fff' : '1px solid #000';
                 cursorSpan.style.marginLeft = '2px';
                 cursorSpan.style.verticalAlign = 'middle';
                 cursorSpan.style.animation = 'blink-cursor 1s steps(2, start) infinite';
             }
-                // Đổi màu cursor khi chuyển dark mode
-                function updateCursorColor() {
-                    const cursorSpan = document.querySelector('#typing-cursor');
-                    if (cursorSpan) {
-                        const isDark = document.body.classList.contains('dark-mode');
-                        cursorSpan.style.borderLeft = isDark ? '2px solid #fff' : '2px solid #000';
-                    }
+            // Đổi màu cursor khi chuyển dark mode
+            function updateCursorColor() {
+                const cursorSpan = document.querySelector('#typing-cursor');
+                if (cursorSpan) {
+                    const isDark = document.body.classList.contains('dark-mode');
+                    cursorSpan.style.borderLeft = isDark ? '2px solid #fff' : '2px solid #000';
                 }
-                document.getElementById('toggle-dark')?.addEventListener('click', () => {
-                    setTimeout(updateCursorColor, 100);
-                });
+            }
+            document.getElementById('toggle-dark')?.addEventListener('click', () => {
+                setTimeout(updateCursorColor, 100);
+            });
             if (index < text.length) {
                 index++;
-                setTimeout(typeCharacter, 250);
+                // Variable delay logic (slower)
+                let delay = 120 + Math.random() * 100; // base random delay between 120-220ms
+                const prevChar = text.charAt(index - 1);
+                if (prevChar === ' ' || prevChar === '\n') {
+                    delay = 350 + Math.random() * 120; // longer pause after space
+                } else if (prevChar === ',' || prevChar === '.' || prevChar === ';' || prevChar === ':' || prevChar === '&') {
+                    delay = 500 + Math.random() * 180; // even longer after punctuation
+                }
+                setTimeout(typeCharacter, delay);
             } else {
                 // Khi typing xong, thêm class drop cho profile-img
                 if (profileImg) {
