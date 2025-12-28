@@ -5,6 +5,14 @@
     font-style: normal;
 }
 
+@font-face{
+    font-family: "LoveFrom, Serif L 400";
+    src: url('LoveFrom\,\ Serif\ L\ 400.ttf') format('truetype');
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+}
+
 .profile-img {
     display: block;
     margin: 0 auto 18px auto;
@@ -51,7 +59,6 @@
         opacity: 1;
     }
 }
-}
 
 #toggle-dark {
     display: none !important;
@@ -94,7 +101,7 @@ body.dark-mode {
 
 body {
     margin: 0;
-    font-family: 'NewYorkMedium', 'Times New Roman', Times, serif;
+    font-family: 'LoveFrom, Serif L 400', 'Times New Roman', Times, serif;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -121,10 +128,11 @@ body {
     z-index: 1;
 }
 
+
 .typing {
-    font-family: 'NewYorkMedium', sans-serif;
+    font-family: 'LoveFrom, Serif L 400', serif;
     background-clip: text;
-    font-size: 70px;
+    font-size: 37px;
     line-height: 1.125;
     /* font-weight: 600; */
     letter-spacing: .004em;
@@ -132,27 +140,21 @@ body {
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     /* background-image: linear-gradient(108deg, #0894FF, #C959DD 34%, #FF2E54 68%, #FF9004); */
+    transition: opacity 0.5s cubic-bezier(.4,1,.6,1), transform 0.7s cubic-bezier(.4,1,.6,1);
+    will-change: opacity, transform;
 }
 
-.blink {
-    animation: blink-animation 1s steps(2, start) infinite;
+.typing.hide-animate {
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+    transition: opacity 0.5s 0.15s cubic-bezier(.4,1,.6,1), transform 0.7s cubic-bezier(.4,1,.6,1);
 }
 
-@keyframes blink-animation {
-    to {
-        visibility: hidden;
-    }
-}
-
-@media (max-width: 1200px) {
-    .typing {
-        font-size: 65px;
-    }
-}
 
 @media (max-width: 992px) {
     .typing {
-        font-size: 60px;
+        font-size: 37px;
     }
 
     .typing .line-break {
@@ -162,13 +164,13 @@ body {
 
 @media (max-width: 768px) {
     .typing {
-        font-size: 56px;
+        font-size: 35px;
     }
 }
 
 @media (max-width: 576px) {
     .typing {
-        font-size: 46px;
+        font-size: 35px;
     }
 }
 

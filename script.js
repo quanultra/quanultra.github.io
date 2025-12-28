@@ -1,10 +1,46 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Typing effect
-    const text = "Kiến Thức,Kinh Nghiệm,& Trải Nghiệm.".toLowerCase();
+    // Toggle between profile and typing centered
     const typingElement = document.querySelector(".typing");
-    const cursor = document.getElementById("typing-cursor");
     const profileImg = document.querySelector('.profile-img');
+    let showProfile = false;
+
+    function showProfileOnly() {
+        if (profileImg) profileImg.style.opacity = 1;
+        if (typingElement) {
+            typingElement.classList.add('hide-animate');
+            // Ensure profile appears after animation
+            setTimeout(() => {
+                typingElement.style.opacity = 0;
+            }, 650);
+        }
+    }
+    function showTypingOnly() {
+        if (profileImg) profileImg.style.opacity = 0;
+        if (typingElement) {
+            typingElement.classList.remove('hide-animate');
+            typingElement.style.opacity = 1;
+        }
+    }
+
+    document.body.addEventListener('click', function (e) {
+        // Only toggle if click is NOT on .typing or .profile-img
+        if (typingElement && typingElement.contains(e.target)) return;
+        if (profileImg && profileImg.contains(e.target)) return;
+        showProfile = !showProfile;
+        if (showProfile) {
+            showProfileOnly();
+        } else {
+            showTypingOnly();
+        }
+    });
+
+    // Start with typing visible, profile hidden
+    showTypingOnly();
+    // Typing effect
+    // const text = "Kiến Thức,Kinh Nghiệm,& Trải Nghiệm.".toLowerCase();
+    const text = "stay hungry, stay foolish.".toLowerCase();
+    const cursor = document.getElementById("typing-cursor");
     function type() {
         let index = 0;
         function typeCharacter() {
@@ -56,10 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
                 setTimeout(typeCharacter, delay);
             } else {
-                // Khi typing xong, thêm class drop cho profile-img
-                if (profileImg) {
-                    profileImg.classList.add('drop');
-                }
+                // Khi typing xong
             }
         }
         typingElement.style.visibility = 'hidden';
