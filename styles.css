@@ -5,12 +5,12 @@
     font-style: normal;
 }
 
-@font-face{
+@font-face {
     font-family: "LoveFrom, Serif L 400";
     src: url('LoveFrom\,\ Serif\ L\ 400.ttf') format('truetype');
-    font-weight:normal;
-    font-style:normal;
-    font-display:swap;
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 .profile-img {
@@ -27,13 +27,12 @@
     top: -200px;
     opacity: 0;
     left: 0;
-    /* Không dùng transition, dùng animation keyframes */
     animation: none;
 }
 
 .profile-img.drop {
     opacity: 1;
-    animation: drop-bounce 1.2s cubic-bezier(.25,.75,.5,1.25) forwards;
+    animation: drop-bounce 1.2s cubic-bezier(.25, .75, .5, 1.25) forwards;
 }
 
 @keyframes drop-bounce {
@@ -41,19 +40,24 @@
         top: -200px;
         opacity: 0;
     }
+
     60% {
         top: 60px;
         opacity: 1;
     }
+
     80% {
         top: -20px;
     }
+
     90% {
         top: 20px;
     }
+
     95% {
         top: -8px;
     }
+
     100% {
         top: 0;
         opacity: 1;
@@ -140,15 +144,8 @@ body {
     -webkit-box-decoration-break: clone;
     box-decoration-break: clone;
     /* background-image: linear-gradient(108deg, #0894FF, #C959DD 34%, #FF2E54 68%, #FF9004); */
-    transition: opacity 0.5s cubic-bezier(.4,1,.6,1), transform 0.7s cubic-bezier(.4,1,.6,1);
+    transition: opacity 0.5s cubic-bezier(.4, 1, .6, 1), transform 0.7s cubic-bezier(.4, 1, .6, 1);
     will-change: opacity, transform;
-}
-
-.typing.hide-animate {
-    opacity: 0;
-    transform: translateY(-100%);
-    pointer-events: none;
-    transition: opacity 0.5s 0.15s cubic-bezier(.4,1,.6,1), transform 0.7s cubic-bezier(.4,1,.6,1);
 }
 
 
