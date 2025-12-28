@@ -1,16 +1,24 @@
-@font-face {
+/* @font-face {
     font-family: 'NewYorkMedium';
     src: url('NewYorkMedium-Regular.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
-}
+} */
 
-@font-face {
+/* @font-face {
     font-family: "LoveFrom, Serif L 400";
     src: url('LoveFrom\,\ Serif\ L\ 400.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+} */
+
+
+@font-face {
+    font-family: 'LibreBaskerville';
+    src: url('LibreBaskerville-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 .profile-img {
@@ -105,7 +113,7 @@ body.dark-mode {
 
 body {
     margin: 0;
-    font-family: 'LoveFrom, Serif L 400', 'Times New Roman', Times, serif;
+    font-family: 'LibreBaskerville', 'Times New Roman', Times, serif;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -134,7 +142,7 @@ body {
 
 
 .typing {
-    font-family: 'LoveFrom, Serif L 400', serif;
+    font-family: 'LibreBaskerville', serif;
     background-clip: text;
     font-size: 37px;
     line-height: 1.125;
