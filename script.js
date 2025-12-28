@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const text = "Kiến Thức,Kinh Nghiệm,& Trải Nghiệm.";
     const typingElement = document.querySelector(".typing");
     const cursor = document.getElementById("typing-cursor");
+    const profileImg = document.querySelector('.profile-img');
     function type() {
         let index = 0;
         function typeCharacter() {
@@ -46,6 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
             if (index < text.length) {
                 index++;
                 setTimeout(typeCharacter, 250);
+            } else {
+                // Khi typing xong, thêm class drop cho profile-img
+                if (profileImg) {
+                    profileImg.classList.add('drop');
+                }
             }
         }
         typingElement.style.visibility = 'hidden';
