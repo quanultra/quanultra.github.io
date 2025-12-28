@@ -2,41 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Toggle between profile and typing centered
     const typingElement = document.querySelector(".typing");
-    const profileImg = document.querySelector('.profile-img');
-    let showProfile = false;
 
-    // function showProfileOnly() {
-    //     if (profileImg) profileImg.style.opacity = 1;
-    //     if (typingElement) {
-    //         typingElement.classList.add('hide-animate');
-    //         // Ensure profile appears after animation
-    //         setTimeout(() => {
-    //             typingElement.style.opacity = 0;
-    //         }, 650);
-    //     }
-    // }
-    // function showTypingOnly() {
-    //     if (profileImg) profileImg.style.opacity = 0;
-    //     if (typingElement) {
-    //         typingElement.classList.remove('hide-animate');
-    //         typingElement.style.opacity = 1;
-    //     }
-    // }
-
-    // document.body.addEventListener('click', function (e) {
-    //     // Only toggle if click is NOT on .typing or .profile-img
-    //     if (typingElement && typingElement.contains(e.target)) return;
-    //     if (profileImg && profileImg.contains(e.target)) return;
-    //     showProfile = !showProfile;
-    //     if (showProfile) {
-    //         showProfileOnly();
-    //     } else {
-    //         showTypingOnly();
-    //     }
-    // });
-
-    // Start with typing visible, profile hidden
-    // showTypingOnly();
     // Typing effect
     // const text = "Kiến Thức,Kinh Nghiệm,& Trải Nghiệm.".toLowerCase();
     const text = "stay hungry,stay foolish.".toLowerCase();
@@ -82,15 +48,20 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             if (index < text.length) {
                 index++;
-                // Variable delay logic (slower)
-                let delay = 120 + Math.random() * 100; // base random delay between 120-220ms
+                // Tăng độ chân thật cho delay typing
+                let delay;
                 const prevChar = text.charAt(index - 1);
-                if (prevChar === ' ' || prevChar === '\n') {
-                    delay = 350 + Math.random() * 120; // longer pause after space
+                // Xác suất dừng lâu (giả lập người gõ dừng lại)
+                if (Math.random() < 0.07) {
+                    delay = 600 + Math.random() * 800; // dừng lâu bất chợt
+                } else if (prevChar === ' ' || prevChar === '\n') {
+                    delay = 320 + Math.random() * 180; // lâu hơn sau khoảng trắng
                 } else if (prevChar === ',') {
-                    delay = 1500; // delay 1.5s khi break line (dấu phẩy sinh <br>)
+                    delay = 1200 + Math.random() * 400; // lâu sau dấu phẩy
                 } else if (prevChar === '.' || prevChar === ';' || prevChar === ':' || prevChar === '&') {
-                    delay = 500 + Math.random() * 180; // even longer after punctuation
+                    delay = 700 + Math.random() * 300; // lâu sau dấu câu
+                } else {
+                    delay = 70 + Math.random() * 80; // nhanh hơn cho ký tự thường
                 }
                 setTimeout(typeCharacter, delay);
             } else {
@@ -102,85 +73,4 @@ document.addEventListener("DOMContentLoaded", function () {
         }, 1000);
     }
     type();
-
-    // // Neural network background animation
-    // const canvas = document.getElementById('neural-bg');
-    // // const ctx = canvas.getContext('2d');
-
-    // function resizeCanvas() {
-    //     canvas.width = window.innerWidth;
-    //     canvas.height = window.innerHeight;
-    // }
-    // resizeCanvas();
-    // window.addEventListener('resize', resizeCanvas);
-
-    // Node and connection config
-    // let NODE_COUNT = 48;
-    // if (window.innerWidth < 576) {
-    //     NODE_COUNT = 18;
-    // } else if (window.innerWidth < 768) {
-    //     NODE_COUNT = 28;
-    // } else if (window.innerWidth < 992) {
-    //     NODE_COUNT = 36;
-    // }
-    // const nodes = [];
-    // for (let i = 0; i < NODE_COUNT; i++) {
-    //     nodes.push({
-    //         x: Math.random() * canvas.width,
-    //         y: Math.random() * canvas.height,
-    //         vx: (Math.random() - 0.5) * 1.2,
-    //         vy: (Math.random() - 0.5) * 1.2,
-    //         r: 3 + Math.random() * 2
-    //     });
-    // }
-
-    // function drawNeural() {
-    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //     // Draw connections
-    //     for (let i = 0; i < NODE_COUNT; i++) {
-    //         for (let j = i + 1; j < NODE_COUNT; j++) {
-    //             const a = nodes[i], b = nodes[j];
-    //             const dist = Math.hypot(a.x - b.x, a.y - b.y);
-    //             if (dist < 180) {
-    //                 ctx.save();
-    //                 ctx.strokeStyle = 'rgba(30,30,30,0.55)'; // Đen xám
-    //                 ctx.lineWidth = 1.2;
-    //                 ctx.setLineDash([12, 4, 3, 4]); // Nét đứt dài-ngắn
-    //                 ctx.beginPath();
-    //                 ctx.moveTo(a.x, a.y);
-    //                 ctx.lineTo(b.x, b.y);
-    //                 ctx.stroke();
-    //                 ctx.setLineDash([]); // Trở lại nét liền cho các phần khác
-    //                 ctx.restore();
-    //             }
-    //         }
-    //     }
-    //     // Draw nodes
-    //     for (let node of nodes) {
-    //         ctx.save();
-    //         ctx.beginPath();
-    //         ctx.arc(node.x, node.y, node.r, 0, 2 * Math.PI);
-    //         ctx.fillStyle = 'rgba(40,40,40,0.85)'; // Đen xám
-    //         ctx.shadowColor = 'rgba(0,0,0,0.18)';
-    //         ctx.shadowBlur = 6;
-    //         ctx.fill();
-    //         ctx.restore();
-    //     }
-    // }
-
-    // function updateNeural() {
-    //     for (let node of nodes) {
-    //         node.x += node.vx;
-    //         node.y += node.vy;
-    //         if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
-    //         if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
-    //     }
-    // }
-
-    // function animate() {
-    //     updateNeural();
-    //     drawNeural();
-    //     requestAnimationFrame(animate);
-    // }
-    // animate();
 });
