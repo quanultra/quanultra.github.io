@@ -1,50 +1,27 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>BuiVanQuan,</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
-        rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bùi Văn Quân</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@1,400&display=swap">
+<style>
+:root{--bg:#fbfaf7;--ink:#2a2926;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1a1917;--ink:#e8e5de}}
+:root[data-theme="dark"]{--bg:#1a1917;--ink:#e8e5de}
+*,*::before,*::after{box-sizing:inherit}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:'EB Garamond',Garamond,'Times New Roman',serif;-webkit-font-smoothing:antialiased}
+main{min-height:100%;display:flex;align-items:center;justify-content:center;padding:clamp(24px,8vw,96px) max(clamp(24px,8vw,96px),env(safe-area-inset-left,0px)) clamp(24px,8vw,96px) max(clamp(24px,8vw,96px),env(safe-area-inset-right,0px))}
+p{margin:0;max-width:24em;font-style:italic;font-weight:400;font-size:clamp(22px,1.2rem + 1.4vw,40px);line-height:1.55;text-align:center;text-wrap:balance}
+.l{display:block}
+</style>
 </head>
-
 <body>
-    <div class="content">
-        <p class="typing"><span id="typing-cursor"></span></p>
-    </div>
-    <script src="script.js"></script>
-    <script>
-    // Cursor blink effect
-    const cursor = document.getElementById('typing-cursor');
-    cursor.style.display = 'inline-block';
-    cursor.style.width = '1ch';
-    cursor.style.height = '1.0em';
-    cursor.style.background = 'none';
-    cursor.style.borderLeft = '1px solid #fff';
-    cursor.style.marginLeft = '2px';
-    cursor.style.verticalAlign = 'middle';
-    cursor.style.animation = 'blink-cursor 1s steps(2, start) infinite';
-
-    // Move cursor after .typing text
-    function updateCursorPosition() {
-        const typing = document.querySelector('.typing');
-        if (typing) {
-            cursor.style.position = 'relative';
-            cursor.style.left = '0';
-        }
-    }
-    setInterval(updateCursorPosition, 100);
-
-    // Add blink animation
-    const style = document.createElement('style');
-    style.innerHTML = `@keyframes blink-cursor { to { opacity: 0; } }`;
-    document.head.appendChild(style);
-    </script>
+<main>
+<p><span class="l">Your time is limited,</span><span class="l">so don’t waste it living someone else’s life.</span></p>
+</main>
 </body>
-
 </html>
